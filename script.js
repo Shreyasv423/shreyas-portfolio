@@ -110,9 +110,10 @@ if(copyEmailBtn){
 copyEmailBtn.addEventListener("click", async () => {
 const originalText = copyEmailBtn.textContent;
 try{
-if(navigator.clipboard && window.isSecureContext){
+if(navigator.clipboard?.writeText){
 await navigator.clipboard.writeText(emailAddress);
 }else{
+// Deprecated fallback kept for older browsers where Clipboard API is unavailable.
 const area = document.createElement("textarea");
 area.value = emailAddress;
 area.setAttribute("readonly", "");
