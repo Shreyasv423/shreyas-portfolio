@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shreyas V | Developer</title>
+<meta name="description" content="Portfolio of Shreyas V — developer focused on practical systems, AI tools, and secure applications.">
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
@@ -14,6 +15,14 @@
 <canvas id="matrix"></canvas>
 
 <div class="container">
+
+<nav class="top-nav" aria-label="Primary">
+<a href="#about">About</a>
+<a href="#overview">Overview</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
 <div class="hero-shell">
 
@@ -39,7 +48,7 @@
 
 </div>
 
-<section class="panel about">
+<section class="panel about" id="about">
 <h2>About Me</h2>
 <p>
 BTech at UVCE (ISE) and BS Data Science at IIT Madras.<br>
@@ -48,7 +57,7 @@ Focused on building real-world systems, AI tools, and secure applications.
 </p>
 </section>
 
-<section class="panel overview">
+<section class="panel overview" id="overview">
 <h2>At a Glance</h2>
 <div class="overview-grid">
 <div class="overview-card">
@@ -93,7 +102,7 @@ Focused on building real-world systems, AI tools, and secure applications.
 </div>
 </section>
 
-<section class="panel skills">
+<section class="panel skills" id="skills">
 <h2>Tech Stack</h2>
 <div class="skill-grid">
 <div class="card">Python / C / C++</div>
@@ -130,7 +139,7 @@ Focused on building real-world systems, AI tools, and secure applications.
 
 </section>
 
-<section class="panel contact">
+<section class="panel contact" id="contact">
 <h2>Connect With Me</h2>
 
 <div class="socials">
@@ -139,7 +148,10 @@ Focused on building real-world systems, AI tools, and secure applications.
 <a href="https://github.com/ishreyasv" target="_blank" rel="noreferrer">💻 GitHub</a>
 </div>
 
-<p class="mail">📧 Email: shreyasv@proton.me</p>
+<div class="mail-actions">
+<a class="mail-link" href="mailto:shreyasv@proton.me">📧 shreyasv@proton.me</a>
+<button class="mail-copy" id="copy-email-btn" type="button">Copy Email</button>
+</div>
 </section>
 
 <section class="panel counter-panel">
@@ -156,7 +168,8 @@ Focused on building real-world systems, AI tools, and secure applications.
 
 </div>
 
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+
 <script src="script.js"></script>
 </body>
 </html>
-
