@@ -74,6 +74,12 @@ background:rgba(255,255,255,0.06);
 border-color:var(--panel-border);
 }
 
+.top-nav a.active{
+background:rgba(88,248,198,0.14);
+border-color:rgba(88,248,198,0.4);
+color:var(--accent);
+}
+
 h1{
 font-family:Orbitron;
 font-size:clamp(3rem,7vw,5rem);
@@ -286,6 +292,47 @@ color:var(--muted);
 line-height:1.75;
 }
 
+.project-meta{
+font-size:0.78rem;
+letter-spacing:0.08em;
+text-transform:uppercase;
+color:var(--accent-2) !important;
+margin:0 0 10px !important;
+}
+
+.impact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:14px;
+}
+
+.impact-card{
+border:1px solid rgba(49,223,255,0.18);
+border-radius:18px;
+padding:20px;
+background:rgba(255,255,255,0.03);
+transition:transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.impact-card:hover{
+transform:translateY(-2px);
+border-color:rgba(88,248,198,0.34);
+}
+
+.impact-value{
+margin:0;
+font-size:1rem;
+letter-spacing:0.08em;
+text-transform:uppercase;
+color:var(--text);
+}
+
+.impact-label{
+margin:12px 0 0;
+line-height:1.75;
+color:var(--muted);
+}
+
 .counter-panel{
 text-align:center;
 }
@@ -347,6 +394,12 @@ margin-top:18px;
 margin-bottom:0;
 color:var(--muted);
 text-align:center;
+}
+
+.contact-note{
+margin:18px 0 0;
+color:var(--muted);
+line-height:1.7;
 }
 
 .mail-actions{

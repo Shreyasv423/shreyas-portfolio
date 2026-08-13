@@ -65,22 +65,34 @@ const lines=[
 
 let line=0;
 let char=0;
+const typingTarget = document.getElementById("typing");
 
 function type(){
-if(line<lines.length){
-if(char<lines[line].length){
-document.getElementById("typing").innerHTML+=lines[line].charAt(char);
+if(!typingTarget){
+return;
+}
+
+if(line < lines.length){
+if(char < lines[line].length){
+typingTarget.innerHTML += lines[line].charAt(char);
 char++;
 setTimeout(type,40);
 }else{
-document.getElementById("typing").innerHTML+="<br>";
+typingTarget.innerHTML += "<br>";
 line++;
-char=0;
+char = 0;
 setTimeout(type,400);
 }
 }
 }
+
+if(prefersReducedMotion){
+if(typingTarget){
+typingTarget.innerHTML = lines.join("<br>");
+}
+}else{
 type();
+}
 
 // BACK TO TOP
 const backToTopBtn = document.getElementById("back-to-top");
@@ -135,4 +147,45 @@ copyEmailBtn.textContent = originalText;
 }, 1300);
 }
 });
+}
+
+// ACTIVE NAV HIGHLIGHT
+const navLinks = Array.from(document.querySelectorAll('.top-nav a[href^="#"]'));
+const sectionIds = navLinks.map((link) => link.getAttribute("href")).filter(Boolean);
+const observedSections = sectionIds
+.map((id) => document.querySelector(id))
+.filter(Boolean);
+
+if(navLinks.length && observedSections.length && "IntersectionObserver" in window){
+const observer = new IntersectionObserver(
+(entries) => {
+const visible = entries
+.filter((entry) => entry.isIntersecting)
+.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+if(!visible){
+return;
+}
+
+const activeId = `#${visible.target.id}`;
+for(const link of navLinks){
+const isActive = link.getAttribute("href") === activeId;
+link.classList.toggle("active", isActive);
+}
+},
+{
+threshold:[0.3, 0.55, 0.8],
+rootMargin:"-15% 0px -60% 0px"
+}
+);
+
+for(const section of observedSections){
+observer.observe(section);
+}
+}
+
+// FOOTER YEAR
+const yearEl = document.getElementById("current-year");
+if(yearEl){
+yearEl.textContent = String(new Date().getFullYear());
 }
